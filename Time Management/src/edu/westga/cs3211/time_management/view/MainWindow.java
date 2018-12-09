@@ -51,6 +51,16 @@ public class MainWindow {
     }
     
     @FXML
+    void updateEvent(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void removeEvent(ActionEvent event) {
+
+    }
+    
+    @FXML
     void selectEvent(MouseEvent event) {
     	Event eventSelected = this.eventList.getSelectionModel().getSelectedItem();
     	if(eventSelected != null) {
