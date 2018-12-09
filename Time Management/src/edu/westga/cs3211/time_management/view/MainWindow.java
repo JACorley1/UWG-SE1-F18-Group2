@@ -57,6 +57,10 @@ public class MainWindow {
     
     @FXML
     void removeEvent(ActionEvent event) {
+    	Event eventSelected = this.eventList.getSelectionModel().getSelectedItem();
+    	if (eventSelected != null) {
+    		//TODO
+    	}
 
     }
     

@@ -1,6 +1,5 @@
 package edu.westga.cs3211.time_management.model;
 
-import java.util.List;
 import java.time.LocalDateTime;
 
 /**
@@ -71,26 +70,4 @@ public class EventDataValidator {
 		return endTime.isAfter(startTime);
 	}
 
-	/** Checks the list of attendees
-	 * 
-	 * @precondition none
-	 * @postcondition none
-	 * 					
-	 * @param String names the names of the attendees
-	 * 
-	 * @return true  if list contains valid names (see checkName for more details)
-	 * 		   false if list contains one or more invalid names (see checkName for more details)
-	 */
-	public static boolean checkAttendees(List<String> names) {
-		if (names == null) {
-			return false;
-		}
-		
-		for(String name : names) {
-			if(!EventDataValidator.checkName(name)) {
-				return false;
-			}
-		}
-		return true;
-	}
 }
