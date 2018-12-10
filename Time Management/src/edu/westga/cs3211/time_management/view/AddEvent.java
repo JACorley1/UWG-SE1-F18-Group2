@@ -65,7 +65,6 @@ public class AddEvent {
 
 	private Calendar calendar;
 
-	private static final String INVALID_START = "Start time is invalid";
 
 	private void displayErrorMessage(String errorMessage) {
 		Alert alert = new Alert(AlertType.ERROR, errorMessage);
@@ -87,9 +86,9 @@ public class AddEvent {
 		LocalDateTime startTime = LocalDateTime.of(this.startTimeDate.getValue(), LocalTime.of(9, 0));
 		LocalDateTime endTime = LocalDateTime.of(this.endTimeDate.getValue(), LocalTime.of(5, 0));
 		if (!EventDataValidator.checkStartTime(startTime)) {
-			errorText += INVALID_START + System.lineSeparator();
+			errorText += "Start time is invalid" + System.lineSeparator();
 		} else if (!EventDataValidator.checkStartTime(endTime)) {
-			errorText += INVALID_START + System.lineSeparator();
+			errorText += "End time is invalid" + System.lineSeparator();
 		}
 		if (!errorText.isEmpty()) {
 			this.displayErrorMessage(errorText);
