@@ -54,7 +54,6 @@ public class Calendar {
 		event.setID(this.events.indexOf(event));
 	}
 
-	
 	/**
 	 * Updates an event in the calendar
 	 * 
@@ -121,14 +120,12 @@ public class Calendar {
 
 		for (Event current : this.events) {
 			if (!event.getStartTime().isBefore(current.getStartTime())
-					&& !event.getStartTime().isAfter(current.getEndTime()) 
-					&& current.getID() != event.getID() 
+					&& !event.getStartTime().isAfter(current.getEndTime()) && current.getID() != event.getID()
 					&& !conflicts.contains(current)) {
 				conflicts.add(current);
 			}
 			if (!event.getEndTime().isBefore(current.getStartTime())
-					&& !event.getEndTime().isAfter(current.getEndTime()) 
-					&& current.getID() != event.getID() 
+					&& !event.getEndTime().isAfter(current.getEndTime()) && current.getID() != event.getID()
 					&& !conflicts.contains(current)) {
 				conflicts.add(current);
 			}

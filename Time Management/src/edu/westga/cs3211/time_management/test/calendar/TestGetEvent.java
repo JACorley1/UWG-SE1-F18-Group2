@@ -21,64 +21,64 @@ public class TestGetEvent {
 			myCalendar.getEvent(null);
 		});
 	}
-	
+
 	@Test
 	public void testGetEvent() {
-		Calendar myCalendar = new  Calendar();
+		Calendar myCalendar = new Calendar();
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);
 		Event myEvent = new Event("Name", start, end, "school", "homework", Visibility.PUBLIC);
-		
+
 		myCalendar.addEvent(myEvent);
 
 		assertEquals(true, myCalendar.getEvent(myEvent).equals(myEvent));
 	}
-	
+
 	@Test
 	public void testGetFirstEventInListOfthree() {
-		Calendar myCalendar = new  Calendar();
+		Calendar myCalendar = new Calendar();
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);
 		Event myEvent = new Event("Name", start, end, "school", "homework", Visibility.PUBLIC);
 		Event myEvent1 = new Event("Name1", start, end, "school1", "homework1", Visibility.PUBLIC);
 		Event myEvent2 = new Event("Name2", start, end, "school2", "homework2", Visibility.PUBLIC);
-		
+
 		myCalendar.addEvent(myEvent);
 		myCalendar.addEvent(myEvent1);
 		myCalendar.addEvent(myEvent2);
-		
+
 		assertEquals(true, myCalendar.getEvent(myEvent).equals(myEvent));
 	}
-	
+
 	@Test
 	public void testGetSecondEventInListOfthree() {
-		Calendar myCalendar = new  Calendar();
+		Calendar myCalendar = new Calendar();
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);
 		Event myEvent = new Event("Name", start, end, "school", "homework", Visibility.PUBLIC);
 		Event myEvent1 = new Event("Name1", start, end, "school1", "homework1", Visibility.PUBLIC);
 		Event myEvent2 = new Event("Name2", start, end, "school2", "homework2", Visibility.PUBLIC);
-		
+
 		myCalendar.addEvent(myEvent);
 		myCalendar.addEvent(myEvent1);
 		myCalendar.addEvent(myEvent2);
-		
+
 		assertEquals(true, myCalendar.getEvent(myEvent1).equals(myEvent1));
 	}
-	
+
 	@Test
 	public void testGetThirdEventInListOfthree() {
-		Calendar myCalendar = new  Calendar();
+		Calendar myCalendar = new Calendar();
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);
 		Event myEvent = new Event("Name", start, end, "school", "homework", Visibility.PUBLIC);
 		Event myEvent1 = new Event("Name1", start, end, "school1", "homework1", Visibility.PUBLIC);
 		Event myEvent2 = new Event("Name2", start, end, "school2", "homework2", Visibility.PUBLIC);
-		
+
 		myCalendar.addEvent(myEvent);
 		myCalendar.addEvent(myEvent1);
 		myCalendar.addEvent(myEvent2);
-		
+
 		assertEquals(true, myCalendar.getEvent(myEvent2).equals(myEvent2));
 	}
 

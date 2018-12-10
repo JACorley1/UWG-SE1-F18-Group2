@@ -16,18 +16,17 @@ class TestCheckEndTime {
 
 	@Test
 	void testValidEndtime() {
-		LocalTime startTime = LocalTime.of(10,42);
-		LocalTime endTime = LocalTime.of(11,42);
+		LocalTime startTime = LocalTime.of(10, 42);
+		LocalTime endTime = LocalTime.of(11, 42);
 		LocalDate date = LocalDate.of(1, 2, 3);
 		LocalDateTime start = LocalDateTime.of(date, startTime);
 		LocalDateTime end = LocalDateTime.of(date, endTime);
-		
+
 		boolean result = EventDataValidator.checkEndTime(start, end);
-		
+
 		assertTrue(result);
 	}
-	
-	
+
 	@Test
 	void testInvalidEndtimeEarlierThanStartTime() {
 		LocalTime startTime = LocalTime.parse("10:42");
@@ -35,32 +34,30 @@ class TestCheckEndTime {
 		LocalDate date = LocalDate.of(1, 2, 3);
 		LocalDateTime start = LocalDateTime.of(date, startTime);
 		LocalDateTime end = LocalDateTime.of(date, endTime);
-		
+
 		boolean result = EventDataValidator.checkEndTime(start, end);
-		
+
 		assertFalse(result);
 	}
-	
+
 	@Test
 	void testErrorNullStart() {
 		LocalTime endTime = LocalTime.parse("11:42");
 		LocalDate date = LocalDate.of(1, 2, 3);
 		LocalDateTime end = LocalDateTime.of(date, endTime);
-		
+
 		assertThrows(IllegalArgumentException.class, () -> EventDataValidator.checkEndTime(null, end));
 	}
-	
+
 	@Test
 	void testErrorNullEnd() {
 		LocalTime startTime = LocalTime.parse("11:42");
 		LocalDate date = LocalDate.of(1, 2, 3);
 		LocalDateTime start = LocalDateTime.of(date, startTime);
-		
+
 		boolean result = EventDataValidator.checkEndTime(start, null);
-		
+
 		assertFalse(result);
 	}
-	
-	
 
 }

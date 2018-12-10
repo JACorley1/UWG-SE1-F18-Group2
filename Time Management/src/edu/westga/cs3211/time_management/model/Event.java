@@ -65,9 +65,10 @@ public class Event {
 		this.description = description;
 		this.visibility = visibility;
 	}
-	
+
 	/**
 	 * updates the event to the properties of the modified event
+	 * 
 	 * @precondition modifiedEvent != null
 	 * @precondition the event is updated
 	 * 
@@ -85,9 +86,9 @@ public class Event {
 		this.visibility = modifiedEvent.visibility;
 	}
 
-
 	/**
 	 * sets the id of the event
+	 * 
 	 * @precondition none
 	 * @postcondition the id is set
 	 * @param id the id of the event
@@ -95,15 +96,17 @@ public class Event {
 	public void setID(int id) {
 		this.id = id;
 	}
-	
+
 	/**
 	 * gets the id of the event
+	 * 
 	 * @precondition none
 	 * @return the id of the event
 	 */
 	public int getID() {
 		return this.id;
 	}
+
 	/**
 	 * return the name of the event
 	 * 

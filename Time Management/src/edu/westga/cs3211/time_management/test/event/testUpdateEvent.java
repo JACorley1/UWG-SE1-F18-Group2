@@ -16,24 +16,25 @@ public class testUpdateEvent {
 	public void testUpdateNullEvent() {
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);
-		
+
 		Event originalEvent = new Event("Bob", start, end, "location", "description", Visibility.PUBLIC);
-		
+
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			originalEvent.updateEvent(null);
 		});
 	}
-	
+
 	@Test
 	public void testUpdateOneEvent() {
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);
-		
+
 		Event originalEvent = new Event("Bob", start, end, "location", "description", Visibility.PUBLIC);
-		Event modifiedEvent = new Event("New Bob", start.plusDays(4), end.plusDays(4), "New location", "New description", Visibility.PUBLIC);
-		
+		Event modifiedEvent = new Event("New Bob", start.plusDays(4), end.plusDays(4), "New location",
+				"New description", Visibility.PUBLIC);
+
 		originalEvent.updateEvent(modifiedEvent);
-		
+
 		assertEquals(true, originalEvent.getName().equals(modifiedEvent.getName()));
 		assertEquals(true, originalEvent.getStartTime().equals(modifiedEvent.getStartTime()));
 		assertEquals(true, originalEvent.getEndTime().equals(modifiedEvent.getEndTime()));

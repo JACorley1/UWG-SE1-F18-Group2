@@ -16,12 +16,12 @@ class TestToString {
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);
 		Event event = new Event("Bob", start, end, "location", "description", Visibility.PUBLIC);
-		
+
 		String result = event.toString();
-		
+
 		String expectedString = "Bob(" + start + "," + end + ")";
 		assertEquals(expectedString, result);
-		
+
 	}
 
 }

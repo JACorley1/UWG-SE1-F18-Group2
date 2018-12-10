@@ -11,21 +11,21 @@ class TestToString {
 	@Test
 	void testPublic() {
 		String result = Visibility.PUBLIC.toString();
-		
+
 		assertEquals("Public", result);
 	}
 
 	@Test
 	void testPrivate() {
 		String result = Visibility.PRIVATE.toString();
-		
+
 		assertEquals("Private", result);
 	}
 
 	@Test
 	void testFriendsOnly() {
 		String result = Visibility.FRIENDS_ONLY.toString();
-		
+
 		assertEquals("Friends Only", result);
 	}
 
