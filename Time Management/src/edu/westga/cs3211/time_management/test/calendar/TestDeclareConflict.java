@@ -76,6 +76,7 @@ class TestDeclareConflict {
 		calendar.addEvent(event1);
 		
 		Event event = new Event("Bob", start.minusHours(1), end.minusHours(1), "location", "description", Visibility.PUBLIC);
+		event.setID(event1.getID() + 1);
 		
 		List<Event> result = calendar.declareConflicts(event);
 		
@@ -91,7 +92,7 @@ class TestDeclareConflict {
 		calendar.addEvent(event1);
 		
 		Event event = new Event("Bob", start.plusHours(1), end.plusHours(1), "location", "description", Visibility.PUBLIC);
-		
+		event.setID(event1.getID() + 1);
 		List<Event> result = calendar.declareConflicts(event);
 		
 		assertEquals(1, result.size(), "checking number of conflicts");

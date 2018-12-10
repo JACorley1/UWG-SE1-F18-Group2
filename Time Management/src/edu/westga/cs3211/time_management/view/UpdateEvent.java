@@ -106,7 +106,6 @@ public class UpdateEvent {
 			this.displayErrorMessage(errorText);
 			return;
 		}
-
 		String location = this.locationText.getText();
 		if (location == null) {
 			location = "";
@@ -116,32 +115,38 @@ public class UpdateEvent {
 			description = "";
 		}
 		Visibility visibility = this.visibilityList.getValue();
+		Event updatedEvent = new Event(name, startTime, endTime, location, description, visibility);
+		updatedEvent.setID(this.selectedEvent.getID());
+		String conflictingEventText = this.generateConflictingEventsText(updatedEvent);
+		Alert alert = this.generateAlert(updatedEvent, conflictingEventText);
+		this.showAlert(event, updatedEvent, alert);
+	}
 
-		// this.calendar.updateEvent(this.selectedEvent, name, startTime, endTime,
-		// location, description, visibility);
-		// TODO change to create new event and delete old event if confirmed
-
-		List<Event> conflictingEvents = this.calendar.declareConflicts(this.selectedEvent);
-
-		String eventText = this.selectedEvent.toStringFull();
-		String conflictText = "";
-		// for(Event currEvent : conflictingEvents) {
-		// conflictText += currEvent.toString() + System.lineSeparator();
-		// }
-		for (int index = 1; index < conflictingEvents.size(); index++) {
-			conflictText += conflictingEvents.get(index).toString() + System.lineSeparator();
-		}
-		String eventSummaryAndConflictText = "NEW EVENT DETAILS" + System.lineSeparator() + eventText
-				+ System.lineSeparator() + "CONFLICTING EVENTS" + conflictText;
-		Alert alert = new Alert(AlertType.CONFIRMATION, eventSummaryAndConflictText);
-		alert.setTitle("Create New Event?");
-
+	private void showAlert(ActionEvent event, Event updatedEvent, Alert alert) {
 		Optional<ButtonType> result = alert.showAndWait();
 
 		if (result.isPresent() && result.get() == ButtonType.OK) {
-			this.calendar.updateEvent(this.selectedEvent, name, startTime, endTime, location, description, visibility);
+			this.calendar.updateEvent(this.selectedEvent, updatedEvent);
 			((Node) (event.getSource())).getScene().getWindow().hide();
 		}
+	}
+
+	private Alert generateAlert(Event updatedEvent, String conflictText) {
+		String eventText = updatedEvent.toStringFull();
+		String eventSummaryAndConflictText = "NEW EVENT DETAILS" + System.lineSeparator() + eventText
+				+ System.lineSeparator() + "CONFLICTING EVENTS" + conflictText;
+		Alert alert = new Alert(AlertType.CONFIRMATION, eventSummaryAndConflictText);
+		alert.setTitle("Update the event?");
+		return alert;
+	}
+
+	private String generateConflictingEventsText(Event updatedEvent) {
+		String conflictingEventText = "";
+		List<Event> conflictingEvents = this.calendar.declareConflicts(updatedEvent);
+		for (Event currEvent : conflictingEvents) {
+			conflictingEventText += currEvent.toString() + System.lineSeparator();
+		}
+		return conflictingEventText;
 	}
 
 	/**

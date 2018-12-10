@@ -50,19 +50,6 @@ class TestConstructor {
 	}
 
 	@Test
-	void testInvalidAttendees() {		
-		LocalDateTime start = LocalDateTime.now().plusDays(1);
-		LocalDateTime end = start.plusDays(1);
-			
-		assertThrows(
-						IllegalArgumentException.class, 
-						()->{
-							new Event("Bob", start, end, "", "", Visibility.PUBLIC);
-						}
-					);
-	}
-
-	@Test
 	void testNullLocation() {		
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);

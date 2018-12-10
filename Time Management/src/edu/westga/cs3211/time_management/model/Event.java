@@ -16,60 +16,7 @@ public class Event {
 	private String location;
 	private String description;
 	private Visibility visibility;
-
-	/**
-	 * Sets the name.
-	 *
-	 * @param name the new name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * Sets the start time.
-	 *
-	 * @param startTime the new start time
-	 */
-	public void setStartTime(LocalDateTime startTime) {
-		this.startTime = startTime;
-	}
-
-	/**
-	 * Sets the end time.
-	 *
-	 * @param endTime the new end time
-	 */
-	public void setEndTime(LocalDateTime endTime) {
-		this.endTime = endTime;
-	}
-
-	/**
-	 * Sets the location.
-	 *
-	 * @param location the new location
-	 */
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	/**
-	 * Sets the description.
-	 *
-	 * @param description the new description
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	/**
-	 * Sets the visibility.
-	 *
-	 * @param visibility the new visibility
-	 */
-	public void setVisibility(Visibility visibility) {
-		this.visibility = visibility;
-	}
+	private int id;
 
 	/**
 	 * Creates a new Event
@@ -118,7 +65,45 @@ public class Event {
 		this.description = description;
 		this.visibility = visibility;
 	}
+	
+	/**
+	 * updates the event to the properties of the modified event
+	 * @precondition modifiedEvent != null
+	 * @precondition the event is updated
+	 * 
+	 * @param modifiedEvent the updated event
+	 */
+	public void updateEvent(Event modifiedEvent) {
+		if (modifiedEvent == null) {
+			throw new IllegalArgumentException("The modified event cannot be null");
+		}
+		this.name = modifiedEvent.name;
+		this.startTime = modifiedEvent.startTime;
+		this.endTime = modifiedEvent.endTime;
+		this.location = modifiedEvent.location;
+		this.description = modifiedEvent.description;
+		this.visibility = modifiedEvent.visibility;
+	}
 
+
+	/**
+	 * sets the id of the event
+	 * @precondition none
+	 * @postcondition the id is set
+	 * @param id the id of the event
+	 */
+	public void setID(int id) {
+		this.id = id;
+	}
+	
+	/**
+	 * gets the id of the event
+	 * @precondition none
+	 * @return the id of the event
+	 */
+	public int getID() {
+		return this.id;
+	}
 	/**
 	 * return the name of the event
 	 * 

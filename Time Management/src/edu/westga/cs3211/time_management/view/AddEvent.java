@@ -106,7 +106,12 @@ public class AddEvent {
 		Visibility visibility = this.visibilityList.getValue();
 
 		Event newEvent = new Event(name, startTime, endTime, location, description, visibility);
+		newEvent.setID(this.calendar.getEvents().size());
 
+		this.displayConfirmationWindow(event, newEvent);
+	}
+
+	private void displayConfirmationWindow(ActionEvent event, Event newEvent) {
 		List<Event> conflictingEvents = this.calendar.declareConflicts(newEvent);
 
 		Alert alert = this.createSummaryAndConflictDialog(newEvent, conflictingEvents);

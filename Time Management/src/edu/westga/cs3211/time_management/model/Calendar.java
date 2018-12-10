@@ -1,6 +1,5 @@
 package edu.westga.cs3211.time_management.model;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +51,7 @@ public class Calendar {
 		}
 
 		this.events.add(event);
+		event.setID(this.events.indexOf(event));
 	}
 
 	
@@ -61,25 +61,14 @@ public class Calendar {
 	 * @precondition event != null
 	 * @postcondition
 	 *
-	 * @param event the event
-	 * @param name the name
-	 * @param start the start
-	 * @param end the end
-	 * @param location the location
-	 * @param description the description
-	 * @param visibility the visibility
+	 * @param originalEvent the event
+	 * @param modifiedEvent the event to modify t
 	 */
-	public void updateEvent(Event event, String name, LocalDateTime start, LocalDateTime end, String location,
-			String description, Visibility visibility) {
-		if (event == null) {
+	public void updateEvent(Event originalEvent, Event modifiedEvent) {
+		if (originalEvent == null || modifiedEvent == null) {
 			throw new IllegalArgumentException(EVENT_CANNOT_BE_NULL);
 		}
-		event.setName(name);
-		event.setStartTime(start);
-		event.setEndTime(end);
-		event.setLocation(location);
-		event.setDescription(description);
-		event.setVisibility(visibility);
+		originalEvent.updateEvent(modifiedEvent);
 	}
 
 	/**
@@ -132,11 +121,15 @@ public class Calendar {
 
 		for (Event current : this.events) {
 			if (!event.getStartTime().isBefore(current.getStartTime())
-					&& !event.getStartTime().isAfter(current.getEndTime())) {
+					&& !event.getStartTime().isAfter(current.getEndTime()) 
+					&& current.getID() != event.getID() 
+					&& !conflicts.contains(current)) {
 				conflicts.add(current);
 			}
 			if (!event.getEndTime().isBefore(current.getStartTime())
-					&& !event.getEndTime().isAfter(current.getEndTime())) {
+					&& !event.getEndTime().isAfter(current.getEndTime()) 
+					&& current.getID() != event.getID() 
+					&& !conflicts.contains(current)) {
 				conflicts.add(current);
 			}
 		}

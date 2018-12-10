@@ -7,11 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs3211.time_management.view.MainWindow">
+<AnchorPane minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs3211.time_management.view.MainWindow">
    <children>
       <Button layoutX="579.0" layoutY="47.0" mnemonicParsing="false" onAction="#addEvent" prefHeight="32.0" prefWidth="92.0" text="Add Event" />
+      <Button layoutX="579.0" layoutY="97.0" mnemonicParsing="false" onAction="#removeEvent" prefHeight="32.0" prefWidth="92.0" text="Remove Event" />
+      <Button layoutX="579.0" layoutY="146.0" mnemonicParsing="false" onAction="#updateEvent" prefHeight="32.0" prefWidth="92.0" text="Update Event" />
       <ListView fx:id="eventList" layoutX="293.0" layoutY="38.0" onMouseClicked="#selectEvent" prefHeight="549.0" prefWidth="268.0" />
-      <TextArea fx:id="eventDetailsText" layoutX="14.0" layoutY="38.0" prefHeight="549.0" prefWidth="268.0" />
+      <TextArea fx:id="eventDetailsText" editable="false" layoutX="14.0" layoutY="38.0" prefHeight="549.0" prefWidth="268.0" />
       <Label layoutX="86.0" layoutY="6.0" text="Event Details">
          <font>
             <Font size="22.0" />
@@ -22,7 +24,5 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="579.0" layoutY="97.0" mnemonicParsing="false" onAction="#removeEvent" prefHeight="32.0" prefWidth="92.0" text="Remove Event" />
-      <Button layoutX="579.0" layoutY="146.0" mnemonicParsing="false" onAction="#updateEvent" prefHeight="32.0" prefWidth="92.0" text="Update Event" />
    </children>
 </AnchorPane>
