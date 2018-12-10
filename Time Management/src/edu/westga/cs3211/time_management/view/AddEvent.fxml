@@ -21,17 +21,10 @@
       <DatePicker fx:id="endTimeDate" layoutX="88.0" layoutY="113.0" />
       <TextField fx:id="locationText" layoutX="88.0" layoutY="148.0" />
       <TextField fx:id="descriptionText" layoutX="88.0" layoutY="184.0" />
-      <ComboBox fx:id="attendeesList" layoutX="87.0" layoutY="252.0" prefWidth="150.0" />
-      <Button layoutX="243.0" layoutY="216.0" mnemonicParsing="false" onAction="#addAttendee" text="Add" />
-      <Button layoutX="243.0" layoutY="249.0" mnemonicParsing="false" onAction="#removeAttendee" text="Remove" />
-      <TextField fx:id="newAttendeeText" layoutX="88.0" layoutY="219.0" />
       <ComboBox fx:id="visibilityList" layoutX="87.0" layoutY="284.0" prefWidth="150.0" />
       <Button layoutX="163.0" layoutY="326.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
       <Button layoutX="101.0" layoutY="326.0" mnemonicParsing="false" onAction="#addEvent" text="Add" />
       <Label layoutX="87.0" layoutY="8.0" text="Add New Event">
-         <font>
-            <Font size="22.0" />
-         </font>
       </Label>
    </children>
 </AnchorPane>
