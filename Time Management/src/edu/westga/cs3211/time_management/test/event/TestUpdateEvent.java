@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs3211.time_management.model.Event;
 import edu.westga.cs3211.time_management.model.Visibility;
 
-public class testUpdateEvent {
+public class TestUpdateEvent {
 
 	@Test
 	public void testUpdateNullEvent() {
