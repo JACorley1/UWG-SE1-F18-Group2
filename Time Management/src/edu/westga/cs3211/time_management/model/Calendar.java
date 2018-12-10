@@ -1,5 +1,6 @@
 package edu.westga.cs3211.time_management.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,25 @@ public class Calendar {
 		}
 		
 		this.events.add(event);
+	}
+	
+	/**
+	 * Updates an event in the calendar
+	 * @precondition event != null
+	 * @postcondition 
+	 * 
+	 * @param event event to be updated in the calendar
+	 */
+	public void updateEvent(Event event, String name, LocalDateTime start, LocalDateTime end, String location, String description, Visibility visibility) {
+		if(event == null) {
+			throw new IllegalArgumentException("Event cannot be null");
+		}
+		event.setName(name);
+		event.setStartTime(start);
+		event.setEndTime(end);
+		event.setLocation(location);
+		event.setDescription(description);
+		event.setVisibility(visibility);
 	}
 	
 	/** Remove an event from the calendar

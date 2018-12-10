@@ -56,8 +56,23 @@ public class MainWindow {
     }
     
     @FXML
-    void updateEvent(ActionEvent event) {
-    	
+    void updateEvent(ActionEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+    	Event eventSelected = this.eventList.getSelectionModel().getSelectedItem();
+    	loader.setLocation(Main.class.getResource("view/UpdateEvent.fxml"));
+    	loader.load();
+    	Parent parent= loader.getRoot();
+    	Scene scene= new Scene(parent);
+    	Stage updateEventStage= new Stage();
+    	updateEventStage.setTitle("Update Event");
+    	updateEventStage.setScene(scene);
+    	updateEventStage.initModality(Modality.APPLICATION_MODAL);
+    	UpdateEvent updateEventDialog = loader.getController();
+    	updateEventDialog.setCalendar(this.calendar);
+    	updateEventDialog.setSelectedEvent(eventSelected);
+    	updateEventStage.showAndWait();
+
+        this.eventList.setItems(FXCollections.observableArrayList(this.calendar.getEvents()));
     }
     
     @FXML

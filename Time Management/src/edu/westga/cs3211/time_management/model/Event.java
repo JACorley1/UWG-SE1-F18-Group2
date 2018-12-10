@@ -15,6 +15,60 @@ public class Event {
 	private String description;
 	private Visibility visibility;
 	
+	/**
+	 * Sets the name.
+	 *
+	 * @param name the new name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Sets the start time.
+	 *
+	 * @param startTime the new start time
+	 */
+	public void setStartTime(LocalDateTime startTime) {
+		this.startTime = startTime;
+	}
+
+	/**
+	 * Sets the end time.
+	 *
+	 * @param endTime the new end time
+	 */
+	public void setEndTime(LocalDateTime endTime) {
+		this.endTime = endTime;
+	}
+
+	/**
+	 * Sets the location.
+	 *
+	 * @param location the new location
+	 */
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	/**
+	 * Sets the description.
+	 *
+	 * @param description the new description
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	/**
+	 * Sets the visibility.
+	 *
+	 * @param visibility the new visibility
+	 */
+	public void setVisibility(Visibility visibility) {
+		this.visibility = visibility;
+	}
+
 	/** Creates a new Event
 	 * 
 	 * @precondition EventDataValidator.checkName(name) &&
