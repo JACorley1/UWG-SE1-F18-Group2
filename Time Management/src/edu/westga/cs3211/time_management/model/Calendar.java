@@ -46,6 +46,34 @@ public class Calendar {
 		this.events.add(event);
 	}
 	
+	/** Remove an event from the calendar
+	 * 
+	 * @precondition event != null
+	 * @postcondition getEvents().size() == getEvents().size()@pre - 1
+	 * 
+	 * @param event event to be removed from the calendar
+	 */
+	public void removeEvent(Event event) {
+		if(event == null) {
+			throw new IllegalArgumentException("Event cannot be null");
+		}
+		this.events.remove(event);
+	}
+	
+	/**
+	 * Gets the desired event
+	 * @param event the event
+	 * @precondition event != null
+	 * @return the event 
+	 */
+	public Event getEvent(Event event) {
+		if(event == null) {
+			throw new IllegalArgumentException("Event cannot be null");
+		}
+		int indexOfEvent = this.events.indexOf(event);
+		return this.events.get(indexOfEvent);
+	}
+	
 	/** Finds and returns the list of events in the calendar that would conflict with the specified event
 	 * 
 	 * @precondition event != null

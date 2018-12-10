@@ -2,6 +2,7 @@ package edu.westga.cs3211.time_management.view;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import edu.westga.cs3211.time_management.Main;
@@ -11,10 +12,14 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -59,7 +64,18 @@ public class MainWindow {
     void removeEvent(ActionEvent event) {
     	Event eventSelected = this.eventList.getSelectionModel().getSelectedItem();
     	if (eventSelected != null) {
-    		//TODO
+    		Event selectedEvent = this.calendar.getEvent(eventSelected);
+    		String eventSummary = "Event" + System.lineSeparator() + selectedEvent.toStringFull();
+    		Alert alert = new Alert(AlertType.CONFIRMATION, eventSummary, ButtonType.OK, ButtonType.CANCEL);
+    		alert.setTitle("Remove Event?");
+    		
+    		Optional<ButtonType> result = alert.showAndWait();
+    		
+    		if (result.isPresent() && result.get() == ButtonType.OK) {
+    			this.calendar.removeEvent(eventSelected);
+        		this.eventList.setItems(FXCollections.observableArrayList(this.calendar.getEvents()));
+        		this.eventDetailsText.setText("");
+    		}
     	}
 
     }
