@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import edu.westga.cs3211.time_management.Main;
 import edu.westga.cs3211.time_management.model.Calendar;
 import edu.westga.cs3211.time_management.model.Event;
+import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -40,6 +42,12 @@ public class MainWindow {
 	private TextArea eventDetailsText;
 
 	private Calendar calendar;
+	
+    @FXML
+    private Button removeEventButton;
+
+    @FXML
+    private Button updateEventButton;
 
 	@FXML
 	void addEvent(ActionEvent event) throws IOException {
@@ -57,6 +65,7 @@ public class MainWindow {
 		addEventStage.showAndWait();
 
 		this.eventList.setItems(FXCollections.observableArrayList(this.calendar.getEvents()));
+		
 	}
 
 	@FXML
@@ -78,6 +87,7 @@ public class MainWindow {
 			updateEventStage.showAndWait();
 
 			this.eventList.setItems(FXCollections.observableArrayList(this.calendar.getEvents()));
+			
 		}
 	}
 
@@ -116,5 +126,10 @@ public class MainWindow {
 
 		this.calendar = new Calendar();
 		this.eventList.setItems(FXCollections.observableArrayList(this.calendar.getEvents()));
+		BooleanBinding removeEventBinding = this.eventList.getSelectionModel().selectedItemProperty().isNull();
+		BooleanBinding updateEventBinding = this.eventList.getSelectionModel().selectedItemProperty().isNull();
+		this.removeEventButton.disableProperty().bind(removeEventBinding);
+		this.updateEventButton.disableProperty().bind(updateEventBinding);
 	}
+
 }
