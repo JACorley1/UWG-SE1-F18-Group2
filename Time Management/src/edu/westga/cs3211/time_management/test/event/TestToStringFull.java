@@ -16,7 +16,7 @@ class TestToStringFull {
 		LocalDateTime start = LocalDateTime.now().plusDays(1);
 		LocalDateTime end = start.plusDays(1);
 		Event event = new Event("Bob", start, end, "location", "description", Visibility.PUBLIC);
-		
+
 		String result = event.toStringFull();
 
 		String expectedString = "";
@@ -26,7 +26,7 @@ class TestToStringFull {
 		expectedString += "Location: location" + System.lineSeparator();
 		expectedString += "Description: description" + System.lineSeparator();
 		expectedString += "Visibility: Public" + System.lineSeparator();
-		
+
 		assertEquals(expectedString, result);
 	}
 

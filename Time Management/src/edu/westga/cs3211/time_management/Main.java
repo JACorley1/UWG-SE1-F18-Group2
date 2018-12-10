@@ -5,7 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/** Entry point for the program.
+/**
+ * Entry point for the program.
  * 
  * @author Jonathan Corley
  */
