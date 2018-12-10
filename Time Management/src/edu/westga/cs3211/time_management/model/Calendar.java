@@ -3,26 +3,31 @@ package edu.westga.cs3211.time_management.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Store and manage a collection of events.
+/**
+ * Store and manage a collection of events.
  * 
- * @author Jonathan Corley, Lucas Carlson, Carson Bedrosian, Nolan Williams, Kevin Flynn, Victoria Jenkins, Laura Smedley, Jonathan Nicholl, Brandon Walker
+ * @author Jonathan Corley, Lucas Carlson, Carson Bedrosian, Nolan Williams,
+ *         Kevin Flynn, Victoria Jenkins, Laura Smedley, Jonathan Nicholl,
+ *         Brandon Walker
  */
 public class Calendar {
-	
+
 	private ArrayList<Event> events;
-	
-	/** Return the collection of events in the calendar
+
+	/**
+	 * Return the collection of events in the calendar
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
 	 * @return the collection of events in the calendar
 	 */
-	public ArrayList<Event> getEvents(){
+	public ArrayList<Event> getEvents() {
 		return this.events;
 	}
-	
-	/** Create a new initially empty Calendar
+
+	/**
+	 * Create a new initially empty Calendar
 	 * 
 	 * @precondition none
 	 * @postcondition getEvents().size() == 0
@@ -30,8 +35,9 @@ public class Calendar {
 	public Calendar() {
 		this.events = new ArrayList<Event>();
 	}
-	
-	/** Add a new event to the calendar
+
+	/**
+	 * Add a new event to the calendar
 	 * 
 	 * @precondition event != null
 	 * @postcondition getEvents().size() == getEvents().size()@pre + 1
@@ -42,11 +48,12 @@ public class Calendar {
 		if (event == null) {
 			throw new IllegalArgumentException("Event cannot be null");
 		}
-		
+
 		this.events.add(event);
 	}
-	
-	/** Remove an event from the calendar
+
+	/**
+	 * Remove an event from the calendar
 	 * 
 	 * @precondition event != null
 	 * @postcondition getEvents().size() == getEvents().size()@pre - 1
@@ -54,50 +61,56 @@ public class Calendar {
 	 * @param event event to be removed from the calendar
 	 */
 	public void removeEvent(Event event) {
-		if(event == null) {
+		if (event == null) {
 			throw new IllegalArgumentException("Event cannot be null");
 		}
 		this.events.remove(event);
 	}
-	
+
 	/**
 	 * Gets the desired event
+	 * 
 	 * @param event the event
 	 * @precondition event != null
-	 * @return the event 
+	 * @return the event
 	 */
 	public Event getEvent(Event event) {
-		if(event == null) {
+		if (event == null) {
 			throw new IllegalArgumentException("Event cannot be null");
 		}
 		int indexOfEvent = this.events.indexOf(event);
 		return this.events.get(indexOfEvent);
 	}
-	
-	/** Finds and returns the list of events in the calendar that would conflict with the specified event
+
+	/**
+	 * Finds and returns the list of events in the calendar that would conflict with
+	 * the specified event
 	 * 
 	 * @precondition event != null
 	 * @postcondition none
 	 * 
 	 * @param event the event to check for conflicts
 	 * 
-	 * @return the list of events in the calendar that would conflict with the specified event
+	 * @return the list of events in the calendar that would conflict with the
+	 *         specified event
 	 */
 	public List<Event> declareConflicts(Event event) {
 		if (event == null) {
 			throw new IllegalArgumentException("Event cannot be null");
 		}
 		List<Event> conflicts = new ArrayList<Event>();
-		
-		for(Event current: this.events) {
-			if(!event.getStartTime().isBefore(current.getStartTime()) && !event.getStartTime().isAfter(current.getEndTime())) {
+
+		for (Event current : this.events) {
+			if (!event.getStartTime().isBefore(current.getStartTime())
+					&& !event.getStartTime().isAfter(current.getEndTime())) {
 				conflicts.add(current);
 			}
-			if(!event.getEndTime().isBefore(current.getStartTime()) && !event.getEndTime().isAfter(current.getEndTime())) {
+			if (!event.getEndTime().isBefore(current.getStartTime())
+					&& !event.getEndTime().isAfter(current.getEndTime())) {
 				conflicts.add(current);
 			}
 		}
-		
+
 		return conflicts;
 	}
 }
