@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  *         Dexter Tarver, Daniel Jeselnik, Dylan McCleskey, Justin Smith
  */
 public class EventDataValidator {
-	
+
 	/**
 	 * Checks if the even name is valid
 	 * 
@@ -31,10 +31,11 @@ public class EventDataValidator {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * Checks the start time, determining if it is before the current system time.
-	 * This is used when displaying user warning when creating events startng in the past.
+	 * This is used when displaying user warning when creating events startng in the
+	 * past.
 	 * 
 	 * @param startTime the starting time of the event
 	 * 
@@ -47,24 +48,27 @@ public class EventDataValidator {
 		if (startTime == null) {
 			return false;
 		}
-		
+
 		return !startTime.isBefore(LocalDateTime.now());
 	}
-	
+
 	/**
-	 * @authors TylerWingfield, JeremiahLiscum, JosephFuller
-	 * @param endTime, startTime
+	 * Checks that the ending time is later than the start time for the event
+	 * 
 	 * 
 	 * @precondition startTime != null
 	 * 
-	 * @return true  if endTime is a valid time after startTime
-	 * 		   false if endTime is not or is not after startTime
+	 * @param startTime The starting time of the event
+	 * @param endTime   the ending time of the event
+	 * 
+	 * @return true if endTime is a valid time after startTime false if endTime is
+	 *         not or is not after startTime
 	 */
 	public static boolean checkEndTime(LocalDateTime startTime, LocalDateTime endTime) {
-		if(startTime == null) {
+		if (startTime == null) {
 			throw new IllegalArgumentException("startTime cannot be null");
 		}
-		if(endTime == null) {
+		if (endTime == null) {
 			return false;
 		}
 		return endTime.isAfter(startTime);
