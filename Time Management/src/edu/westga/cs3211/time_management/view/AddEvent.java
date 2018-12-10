@@ -45,8 +45,6 @@ public class AddEvent {
     @FXML private TextField nameText;
     @FXML private DatePicker startTimeDate;
     @FXML private DatePicker endTimeDate;
-    @FXML private TextField newAttendeeText;
-    @FXML private ComboBox<String> attendeesList;
     @FXML private ComboBox<Visibility> visibilityList;
     
 	private Calendar calendar;
@@ -56,22 +54,6 @@ public class AddEvent {
 		alert.showAndWait();
     }
     
-    @FXML
-    void addAttendee(ActionEvent event) {
-    	String name = this.newAttendeeText.getText();
-		if(EventDataValidator.checkName(name)) {
-    		this.attendeesList.getItems().add(name);
-    	}
-		else {
-			this.displayErrorMessage("Invalid name for new attendee: " + name);
-		}
-    }
-
-    @FXML
-    void removeAttendee(ActionEvent event) {
-    	String name = this.attendeesList.getValue();
-    	this.attendeesList.getItems().remove(name);
-    }
 
     @FXML
     void cancel(ActionEvent event) {
@@ -93,10 +75,6 @@ public class AddEvent {
     	else if(!EventDataValidator.checkStartTime(endTime)) {
     		errorText += "Start time is invalid" + System.lineSeparator();
     	}
-    	List<String> attendees = this.attendeesList.getItems();
-    	if(!EventDataValidator.checkAttendees(attendees)) {
-    		errorText += "List of attendee names is invalid" + System.lineSeparator();
-    	}
     	if(!errorText.isEmpty()) {
     		this.displayErrorMessage(errorText);
     		return;
@@ -112,7 +90,7 @@ public class AddEvent {
     	}
     	Visibility visibility = this.visibilityList.getValue();
     	
-    	Event newEvent = new Event(name, startTime, endTime, location, description, attendees, visibility);
+    	Event newEvent = new Event(name, startTime, endTime, location, description, visibility);
     	
     	List<Event> conflictingEvents = this.calendar.declareConflicts(newEvent);
     	
@@ -143,15 +121,12 @@ public class AddEvent {
         assert descriptionText != null : "fx:id=\"descriptionText\" was not injected: check your FXML file 'AddEvent.fxml'.";
         assert nameText != null : "fx:id=\"nameText\" was not injected: check your FXML file 'AddEvent.fxml'.";
         assert endTimeDate != null : "fx:id=\"endTimeDate\" was not injected: check your FXML file 'AddEvent.fxml'.";
-        assert newAttendeeText != null : "fx:id=\"newAttendeeText\" was not injected: check your FXML file 'AddEvent.fxml'.";
         assert endTimeLabel != null : "fx:id=\"endTimeLabel\" was not injected: check your FXML file 'AddEvent.fxml'.";
-        assert attendeesList != null : "fx:id=\"attendeesList\" was not injected: check your FXML file 'AddEvent.fxml'.";
         assert startTimeLabel != null : "fx:id=\"startTimeLabel\" was not injected: check your FXML file 'AddEvent.fxml'.";
         assert descriptionLabel != null : "fx:id=\"descriptionLabel\" was not injected: check your FXML file 'AddEvent.fxml'.";
         assert visibilityList != null : "fx:id=\"visibilityList\" was not injected: check your FXML file 'AddEvent.fxml'.";
         assert nameLabel != null : "fx:id=\"nameLabel\" was not injected: check your FXML file 'AddEvent.fxml'.";
 
-        this.attendeesList.setItems(FXCollections.observableArrayList());
         this.visibilityList.setItems(FXCollections.observableArrayList());
         this.visibilityList.getItems().add(Visibility.PUBLIC);
         this.visibilityList.getItems().add(Visibility.PRIVATE);

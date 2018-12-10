@@ -31,7 +31,7 @@ public class TestAddEvent {
 		LocalDateTime end = start.plusDays(1);
 		ArrayList<String> attendees = new ArrayList<String>();
 		attendees.add("jack");
-		Event myEvent = new Event("Name", start, end, "school", "homework", attendees, Visibility.PUBLIC);
+		Event myEvent = new Event("Name", start, end, "school", "homework", Visibility.PUBLIC);
 		
 		myCalendar.addEvent(myEvent);
 		
