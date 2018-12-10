@@ -1,16 +1,16 @@
 package edu.westga.cs3211.time_management.model;
 
-/** Represents the visibility level of an Event.
+/**
+ * Represents the visibility level of an Event.
  * 
  * @author Jonathan Corley
  *
  */
 public enum Visibility {
-	FRIENDS_ONLY,
-	PUBLIC,
-	PRIVATE;
-	
-	/** Convert the Visibility to a String representation.
+	FRIENDS_ONLY, PUBLIC, PRIVATE;
+
+	/**
+	 * Convert the Visibility to a String representation.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -21,11 +21,9 @@ public enum Visibility {
 	public String toString() {
 		if (this == FRIENDS_ONLY) {
 			return "Friends Only";
-		}
-		else if (this == PUBLIC) {
+		} else if (this == PUBLIC) {
 			return "Public";
-		}
-		else {
+		} else {
 			return "Private";
 		}
 	}
