@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 /**
  * Validate Event information.
  * 
+ * Because all these methods are static, we never instantiate an object of the class. That's why coverage is at 94.1%
+ * 
  * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
 public class EventDataValidator {
