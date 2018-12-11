@@ -5,8 +5,7 @@ import java.time.LocalDateTime;
 /**
  * Store basic information for an event.
  * 
- * @author Lucas Carlson, Carson Bedrosian, Nolan Williams, Kevin Flynn,
- *         Jonathan Corley, Tristen Rivera, Tyler Scott, Dexter Tarver
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
 public class Event {
 
@@ -87,7 +86,7 @@ public class Event {
 	}
 
 	/**
-	 * sets the id of the event
+	 * Sets the id of the event
 	 * 
 	 * @precondition none
 	 * @postcondition the id is set
@@ -98,7 +97,7 @@ public class Event {
 	}
 
 	/**
-	 * gets the id of the event
+	 * Gets the id of the event
 	 * 
 	 * @precondition none
 	 * @return the id of the event
@@ -108,7 +107,7 @@ public class Event {
 	}
 
 	/**
-	 * return the name of the event
+	 * Return the name of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -132,7 +131,7 @@ public class Event {
 	}
 
 	/**
-	 * return the end time of the event
+	 * Returns the end time of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -144,7 +143,7 @@ public class Event {
 	}
 
 	/**
-	 * return the location of the event
+	 * Return the location of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -156,7 +155,7 @@ public class Event {
 	}
 
 	/**
-	 * return the description of the event
+	 * Return the description of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -168,7 +167,7 @@ public class Event {
 	}
 
 	/**
-	 * return the visibility of the event
+	 * Return the visibility of the event
 	 * 
 	 * @precondition none
 	 * @postcondition none

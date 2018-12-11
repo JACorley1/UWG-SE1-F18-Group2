@@ -12,7 +12,11 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs3211.time_management.model.EventDataValidator;
 
-class TestCheckEndTime {
+/*Tests the event endTime validator in the time management app
+ * 
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
+ */
+public class TestCheckEndTime {
 
 	@Test
 	void testValidEndtime() {

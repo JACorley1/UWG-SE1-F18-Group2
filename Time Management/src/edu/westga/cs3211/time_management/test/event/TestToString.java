@@ -9,7 +9,11 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs3211.time_management.model.Event;
 import edu.westga.cs3211.time_management.model.Visibility;
 
-class TestToString {
+/*Tests the event toString in the time management app
+ * 
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
+ */
+public class TestToString {
 
 	@Test
 	void test() {

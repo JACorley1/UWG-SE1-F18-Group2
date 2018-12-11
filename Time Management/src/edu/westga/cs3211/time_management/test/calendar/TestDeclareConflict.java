@@ -11,7 +11,11 @@ import edu.westga.cs3211.time_management.model.Calendar;
 import edu.westga.cs3211.time_management.model.Event;
 import edu.westga.cs3211.time_management.model.Visibility;
 
-class TestDeclareConflict {
+/*Tests the declare conflicts function in the time management app
+ * 
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
+ */
+public class TestDeclareConflict {
 
 	@Test
 	void testEventIsNull() {

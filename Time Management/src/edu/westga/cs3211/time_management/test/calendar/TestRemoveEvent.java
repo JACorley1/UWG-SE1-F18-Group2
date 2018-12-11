@@ -11,6 +11,10 @@ import edu.westga.cs3211.time_management.model.Calendar;
 import edu.westga.cs3211.time_management.model.Event;
 import edu.westga.cs3211.time_management.model.Visibility;
 
+/*Tests the remove event function in the time management app
+ * 
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
+ */
 public class TestRemoveEvent {
 
 	@Test

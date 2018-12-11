@@ -25,62 +25,48 @@ import javafx.scene.control.Alert.AlertType;
  * The Class UpdateEvent to update the selected event with the new user input
  * details.
  * 
- * @author Carson Bedrosian, Lucas Carlson, Tristen Rivera
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
 public class UpdateEvent {
 
-	/** The name label. */
 	@FXML
 	private Label nameLabel;
 
-	/** The start time label. */
 	@FXML
 	private Label startTimeLabel;
 
-	/** The end time label. */
 	@FXML
 	private Label endTimeLabel;
 
-	/** The location label. */
 	@FXML
 	private Label locationLabel;
 
-	/** The description label. */
 	@FXML
 	private Label descriptionLabel;
 
-	/** The name text. */
 	@FXML
 	private TextField nameText;
 
-	/** The start time date. */
 	@FXML
 	private DatePicker startTimeDate;
 
-	/** The end time date. */
 	@FXML
 	private DatePicker endTimeDate;
 
-	/** The location text. */
 	@FXML
 	private TextField locationText;
 
-	/** The description text. */
 	@FXML
 	private TextField descriptionText;
 
-	/** The visibility list. */
 	@FXML
 	private ComboBox<Visibility> visibilityList;
 
-	/** The visibility label. */
 	@FXML
 	private Label visibilityLabel;
 
-	/** The calendar. */
 	private Calendar calendar;
 
-	/** The selected event. */
 	private Event selectedEvent;
 
 	/**
@@ -99,7 +85,7 @@ public class UpdateEvent {
 		LocalDateTime endTime = LocalDateTime.of(this.endTimeDate.getValue(), LocalTime.of(5, 0));
 		if (!EventDataValidator.checkStartTime(startTime)) {
 			errorText += "Start time is invalid" + System.lineSeparator();
-		} else if (!EventDataValidator.checkStartTime(endTime)) {
+		} else if (!EventDataValidator.checkEndTime(startTime, endTime)) {
 			errorText += "End time is invalid" + System.lineSeparator();
 		}
 		if (!errorText.isEmpty()) {

@@ -6,9 +6,7 @@ import java.util.List;
 /**
  * Store and manage a collection of events.
  * 
- * @author Jonathan Corley, Lucas Carlson, Carson Bedrosian, Nolan Williams,
- *         Kevin Flynn, Victoria Jenkins, Laura Smedley, Jonathan Nicholl,
- *         Brandon Walker
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
 public class Calendar {
 

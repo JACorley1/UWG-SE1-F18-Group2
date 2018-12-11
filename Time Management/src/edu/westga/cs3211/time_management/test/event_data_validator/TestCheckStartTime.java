@@ -8,12 +8,11 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs3211.time_management.model.EventDataValidator;
 
-/**
+/*Tests the event startTime validator in the time management app
  * 
- * @author Cody Graham, Kyle Riggs, Dylan Knox
- *
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
-class TestCheckStartTime {
+public class TestCheckStartTime {
 
 	@Test
 	void testNullStartTime() {

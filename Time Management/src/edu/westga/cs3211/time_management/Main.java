@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 /**
  * Entry point for the program.
  * 
- * @author Jonathan Corley
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
 public class Main extends Application {
 	public static final String MAIN_WINDOW_TITLE = "Time Management System";

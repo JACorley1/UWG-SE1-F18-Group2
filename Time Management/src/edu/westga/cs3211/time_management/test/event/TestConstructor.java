@@ -9,7 +9,11 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs3211.time_management.model.Event;
 import edu.westga.cs3211.time_management.model.Visibility;
 
-class TestConstructor {
+/*Tests the event constructor in the time management app
+ * 
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
+ */
+public class TestConstructor {
 
 	@Test
 	void testInvalidName() {

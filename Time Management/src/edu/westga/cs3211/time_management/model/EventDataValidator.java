@@ -5,9 +5,7 @@ import java.time.LocalDateTime;
 /**
  * Validate Event information.
  * 
- * @author Dylan Knox, Kyle Riggs, Cody Graham, Tyler Wingfield, Jeremiah
- *         Liscum, Joseph Fuller, Jonathan Corley, Tristen Rivera, Tyler Scott,
- *         Dexter Tarver, Daniel Jeselnik, Dylan McCleskey, Justin Smith
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
 public class EventDataValidator {
 
@@ -53,7 +51,8 @@ public class EventDataValidator {
 	}
 
 	/**
-	 * Checks that the ending time is later than the start time for the event
+	 * Checks the end time, determining if it is after the starting time.
+	 * This is used when displaying user warning when creating events with invalid event times.
 	 * 
 	 * 
 	 * @precondition startTime != null

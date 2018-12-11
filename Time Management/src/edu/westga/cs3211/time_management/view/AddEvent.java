@@ -27,7 +27,7 @@ import javafx.scene.control.TextField;
 /**
  * Codebehind for the AddEvent Scene.
  * 
- * @author Jonathan Corley
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
 public class AddEvent {
 
@@ -65,7 +65,6 @@ public class AddEvent {
 
 	private Calendar calendar;
 
-
 	private void displayErrorMessage(String errorMessage) {
 		Alert alert = new Alert(AlertType.ERROR, errorMessage);
 		alert.showAndWait();
@@ -87,7 +86,7 @@ public class AddEvent {
 		LocalDateTime endTime = LocalDateTime.of(this.endTimeDate.getValue(), LocalTime.of(5, 0));
 		if (!EventDataValidator.checkStartTime(startTime)) {
 			errorText += "Start time is invalid" + System.lineSeparator();
-		} else if (!EventDataValidator.checkStartTime(endTime)) {
+		} else if (!EventDataValidator.checkEndTime(startTime, endTime)) {
 			errorText += "End time is invalid" + System.lineSeparator();
 		}
 		if (!errorText.isEmpty()) {
@@ -163,7 +162,7 @@ public class AddEvent {
 	}
 
 	/**
-	 * Sets the calendar for use
+	 * Sets the calendar for use in the view
 	 * 
 	 * @param calendar The calendar to be used
 	 */

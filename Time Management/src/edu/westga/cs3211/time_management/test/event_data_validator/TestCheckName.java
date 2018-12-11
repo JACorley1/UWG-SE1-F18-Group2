@@ -6,7 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs3211.time_management.model.EventDataValidator;
 
-class TestCheckName {
+/*Tests the event check name validator in the time management app
+ * 
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
+ */
+public class TestCheckName {
 
 	@Test
 	void testCheckNameNull() {

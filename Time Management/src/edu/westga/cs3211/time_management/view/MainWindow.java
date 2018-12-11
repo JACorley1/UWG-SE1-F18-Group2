@@ -28,26 +28,29 @@ import javafx.stage.Stage;
 /**
  * Codebehind for the MainWindow Scene.
  * 
- * @author Jonathan Corley
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
  */
 public class MainWindow {
 
 	@FXML
 	private ResourceBundle resources;
+	
 	@FXML
 	private URL location;
+	
 	@FXML
 	private ListView<Event> eventList;
+	
 	@FXML
 	private TextArea eventDetailsText;
 
-	private Calendar calendar;
-	
     @FXML
     private Button removeEventButton;
 
     @FXML
     private Button updateEventButton;
+    
+    private Calendar calendar;
 
 	@FXML
 	void addEvent(ActionEvent event) throws IOException {

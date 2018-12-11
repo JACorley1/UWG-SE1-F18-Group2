@@ -10,6 +10,10 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs3211.time_management.model.Event;
 import edu.westga.cs3211.time_management.model.Visibility;
 
+/*Tests the event updater in the time management app
+ * 
+ * @author Jonathan Corley, Lucas Carlson, Carson Bendrosian, Tristen Rivera
+ */
 public class TestUpdateEvent {
 
 	@Test
